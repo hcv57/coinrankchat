@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    depends_on:
+      - webserver
+
+  apiserver:
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-api:c1dfc513b9f37d0c7e5e4733c4cfbff71fbe7008
+    environment:
+      ELASTIC_HOST: elasticsearch
+
+  webserver:
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-web:f752795bfd32c1ce050d33fbec053b1ba74b151b
+
+  telegram:
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-telegram:e76d69148ea7ff384df9a3906d8eba6f352439c2
+    volumes:
+      - ./coinrankchat.session:/usr/src/app/coinrankchat.session
+    environment:
+      ELASTIC_HOST: elasticsearch
+      TELEGRAM_API_ID: $TELEGRAM_API_ID
+      TELEGRAM_API_HASH: $TELEGRAM_API_HASH
+      TELEGRAM_PHONE: $TELEGRAM_PHONE
+
+  elasticsearch:
+    image: elasticsearch
+    volumes:
+      - elastic-data-volume:/usr/share/elasticsearch/data
+
+volumes:
+  elastic-data-volume:
