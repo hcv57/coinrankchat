@@ -17,7 +17,7 @@ services:
       ELASTIC_HOST: elasticsearch
 
   webserver:
-    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-web:f752795bfd32c1ce050d33fbec053b1ba74b151b
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-web:52b926fc94a2a71437918ef34812ce83560db77d
 
   telegram:
     image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-telegram:e76d69148ea7ff384df9a3906d8eba6f352439c2
