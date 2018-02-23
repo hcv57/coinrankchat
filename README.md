@@ -1,21 +1,8 @@
-# WIP Notes to self
+The [coinrank.chat]() site ranks ICOs and cryptocurrency projects by the popularity of their 
+Telegram groups and/or channels in the hope to give investors another metric by which to compare projects.
 
-## Telegram handler
-`docker run --rm -ti --link elasticsearch:elastic -e "ELASTIC_HOST=elastic" -e "TELEGRAM_API_ID=xxx" -e "TELEGRAM_API_HASH=xxx" -e -e "TELEGRAM_PHONE=xxx" coinrankchat python -m coinrankchat.main`
-
-## API server
-`.../gunicorn --reload --bind 0.0.0.0 coinrankchat.api.server`
-
-## Nginx
-`docker run --rm -v -P .../coinrankchat/nginx.conf:/etc/nginx/nginx.conf:ro nginx:alpine`
-
-## Requirements generation
-`pipenv lock -r > requirements.txt`
-
-## GCR registry
-### Grant temp access (works only locally )
-`gcloud docker --authorize-only `
-### JSON token
-- `gcloud auth print-access-token` - get token locally
-- `docker -': docker login -u _token -p "...token..." https://gcr.io
-`
+It consists of the following repositories:
+- https://github.com/hcv57/coinrankchat - the project you are looking at; it ties the other projects together
+- https://github.com/hcv57/coinrankchat-web - the website project built on Python flask
+- https://github.com/hcv57/coinrankchat-api - the api project built on Pyhton falcon
+- https://github.com/hcv57/coinrankchat-telegram - the Telegram client build on telethon
