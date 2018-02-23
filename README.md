@@ -1,5 +1,5 @@
-The [coinrank.chat]() site ranks ICOs and cryptocurrency projects by the popularity of their 
-Telegram groups and/or channels in the hope to give investors another metric by which to compare projects.
+The [coinrank.chat](http://coinrank.chat) site ranks ICOs and cryptocurrency projects by the popularity of their 
+Telegram groups and/or channels in the hope to provide investors with another metric by which to compare projects.
 
 It consists of the following repositories:
 - https://github.com/hcv57/coinrankchat - the project you are looking at; it ties the other projects together
