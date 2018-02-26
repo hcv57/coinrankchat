@@ -17,7 +17,7 @@ services:
       ELASTIC_HOST: elasticsearch
 
   webserver:
-    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-web:710428efd2b34d66c6740c4658043cf173e1b34f
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-web:c78c5325289c57e2613ce1f3cfbfa98ebd83a198
     environment:
       API_SERVER_HOST: "apiserver:8000"
       IMAGE_SERVER_URL: "https://coinrankchat.ams3.digitaloceanspaces.com"
