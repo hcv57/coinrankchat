@@ -12,18 +12,18 @@ services:
       - webserver
 
   apiserver:
-    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-api:1a2c8a437997c6a5048393dc9b91e7ac4dba1e82
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-api:8f759292793d4f9e2679596b8c4ae4556f80bec3
     environment:
       ELASTIC_HOST: elasticsearch
 
   webserver:
-    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-web:b6d4d5308f9f077e2425079d112742004aae0918
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-web:710428efd2b34d66c6740c4658043cf173e1b34f
     environment:
       API_SERVER_HOST: "apiserver:8000"
       IMAGE_SERVER_URL: "https://coinrankchat.ams3.digitaloceanspaces.com"
 
   telegram:
-    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-telegram:e76d69148ea7ff384df9a3906d8eba6f352439c2
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-telegram:d2e5970589a73c0002c83b096e4a2aff72bbaa6e
     volumes:
       - ./coinrankchat.session:/usr/src/app/coinrankchat.session
     environment:
