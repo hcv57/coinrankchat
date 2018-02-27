@@ -12,18 +12,18 @@ services:
       - webserver
 
   apiserver:
-    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-api:8f759292793d4f9e2679596b8c4ae4556f80bec3
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-api:68d64283d13b518585d28dd4bfe9b6f5d168f83e
     environment:
       ELASTIC_HOST: elasticsearch
 
   webserver:
-    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-web:c78c5325289c57e2613ce1f3cfbfa98ebd83a198
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-web:e0e9d62bf60932ab0be2766914b3b25f7712b4e7
     environment:
       API_SERVER_HOST: "apiserver:8000"
-      IMAGE_SERVER_URL: "https://coinrankchat.ams3.digitaloceanspaces.com"
+      IMAGE_SERVER_URL: $IMAGE_SERVER_URL
 
   telegram:
-    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-telegram:d2e5970589a73c0002c83b096e4a2aff72bbaa6e
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-telegram:1981d6a6c4c9493fb4096489a534fb3e026f0fd4
     volumes:
       - ./coinrankchat.session:/usr/src/app/coinrankchat.session
     environment:
@@ -31,6 +31,9 @@ services:
       TELEGRAM_API_ID: $TELEGRAM_API_ID
       TELEGRAM_API_HASH: $TELEGRAM_API_HASH
       TELEGRAM_PHONE: $TELEGRAM_PHONE
+      IMAGE_SERVER_URL: $IMAGE_SERVER_URL
+      S3_KEY_ID: $S3_KEY_ID
+      S3_SECRET: $S3_SECRET
 
   elasticsearch:
     image: elasticsearch
