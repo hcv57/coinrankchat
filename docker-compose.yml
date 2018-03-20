@@ -12,12 +12,12 @@ services:
       - webserver
 
   apiserver:
-    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-api:3552ed1132e747a9e7a751961425c7595b116a85
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-api:d970df4e8c594bc78b8b5dd3f58335d6145f9aa9
     environment:
       ELASTIC_HOST: elasticsearch
 
   webserver:
-    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-web:c30efd16d4b6a2426da5c948f723614847022bc7
+    image: gcr.io/dockerregistry-195816/github-hcv57-coinrankchat-web:9bf1a00318cd0f4283c142bb0ac85d6d68157d7f
     environment:
       API_SERVER_HOST: "apiserver:8000"
       IMAGE_SERVER_URL: $IMAGE_SERVER_URL
